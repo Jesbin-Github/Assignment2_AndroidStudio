@@ -15,11 +15,14 @@ class SignupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.signupbtn.setOnClickListener {
-            val email = binding.editTextTextEmailAddress2.text.toString().trim()
+
+            // getting text form input fields
+            val email = binding.editTextTextEmailAddress2.text.toString().trim() // using trim to avoid any whitespaces
             val password = binding.editTextTextPassword.text.toString().trim()
             val confirmPassword = binding.editTextTextPassword3.text.toString().trim()
 

@@ -26,16 +26,24 @@ class Signup2Activity : AppCompatActivity() {
             if (!isValidEmail(email)) {
                 Toast.makeText(this, "Invalid email format", Toast.LENGTH_SHORT).show()
             } else if (!isValidPassword(password)) {
+
                 Toast.makeText(
                     this,
                     "Password must be 8–15 characters, contain 1 uppercase letter & 1 special character",
                     Toast.LENGTH_LONG
                 ).show()
+
             } else if (password != confirmPassword) {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+
             } else {
                 saveToFirestore(email, password)
             }
+        }
+
+        binding.btnBackToMain.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 
@@ -44,7 +52,7 @@ class Signup2Activity : AppCompatActivity() {
     }
 
     private fun isValidPassword(password: String): Boolean {
-        val passwordPattern = "^(?=.*[A-Z])(?=.*[@#\$%^&+=!]).{8,15}$"
+        val passwordPattern = "^(?=.*[A-Z])(?=.*[@#\$%^&+=!]).{8,15}$" // verifying the password criteria
         return password.matches(Regex(passwordPattern))
     }
 

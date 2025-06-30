@@ -10,10 +10,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+
     private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,7 +45,8 @@ class LoginActivity : AppCompatActivity() {
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
                     Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, WelcomeActivity::class.java))
+
+                    startActivity(Intent(this, WelcomeActivity::class.java)) // navigating to the welcome page
                     finish()
                 } else {
                     Toast.makeText(this, "Invalid email or password!", Toast.LENGTH_SHORT).show()

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
 import com.example.streetbite.databinding.ActivityLogin2Binding
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -33,6 +34,11 @@ class Login2Activity : AppCompatActivity() {
             } else {
                 authenticateUser(email, password)
             }
+        }
+
+        binding.btnBackToMain.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 

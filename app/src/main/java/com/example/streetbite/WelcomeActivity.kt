@@ -3,6 +3,7 @@ package com.example.streetbite
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.streetbite.databinding.ActivityLoginBinding
 import com.example.streetbite.databinding.ActivityWelcomeBinding
@@ -15,6 +16,9 @@ class WelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
